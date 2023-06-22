@@ -20,14 +20,6 @@ export default class RequestController {
         body: {
           type: "object",
           properties: {
-            firstName: {
-              type: 'string',
-              minLength: 3
-            },
-            lastName: {
-              type: 'string',
-              minLength: 3
-            },
             email: {
               type: 'string',
               minLength: 3
@@ -37,7 +29,7 @@ export default class RequestController {
               minLength: 3
             }
           },
-          required: ['firstName', 'lastName', 'email', 'password'],
+          required: ['email', 'password'],
           additionalProperties: false
         }
       }
