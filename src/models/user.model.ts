@@ -1,18 +1,12 @@
 import {
     Table,
     Column,
-    Model, HasMany
+    Model,
+    AllowNull, DataType
 } from 'sequelize-typescript';
-import SaloonModel from "@models/saloon.model";
 
 @Table({ tableName: 'users' })
 export default class UserModel extends Model {
-
-    @Column
-    firstName: string;
-
-    @Column
-    lastName: string;
 
     @Column
     email: string;
@@ -23,7 +17,8 @@ export default class UserModel extends Model {
     @Column
     token: string;
 
-    @HasMany(() => SaloonModel, 'userId')
-    saloons: SaloonModel[];
+    @AllowNull
+    @Column(DataType.JSONB)
+    data: object;
 
 }

@@ -10,13 +10,14 @@ const port:number = 6449;
 
 (async () => {
 
-  await db.sync({force: false});
+  await db.sync({ force: true });
 
   rest.listen(port, (err, address) => {
     if(err) {
       console.error(err);
       process.exit(1);
     }
+
     console.log(`Server listening at ${address}`)
   });
 

@@ -1,11 +1,14 @@
 import bcrypt from "bcrypt";
 
-import {Controller, GET, POST} from "fastify-decorators";
+import {
+  Controller,
+  POST
+} from "fastify-decorators";
+
+import UserModel from "@models/user.model";
 
 import randomstring from "randomstring";
-
 import {FastifyRequest} from "fastify";
-import UserModel from "@models/user.model";
 
 @Controller({ route: '/auth' })
 export default class RequestController {
@@ -106,8 +109,6 @@ export default class RequestController {
       email,
       password
     } = <{
-      firstName: string,
-      lastName: string,
       email: string,
       password: string
     }>req.body;
